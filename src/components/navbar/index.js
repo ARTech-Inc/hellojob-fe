@@ -17,7 +17,7 @@ export const Navbar = () => {
       <Link to="/">
         <div className="flex">
           <p className="text-purple text-xl cursor-pointer font-bold">
-            HelloJobbb
+            HelloJob
           </p>
         </div>
       </Link>
