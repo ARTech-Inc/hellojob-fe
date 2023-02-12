@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bg-purple {
+    @apply bg-[#5E50A1];
+  }
+  .text-purple {
+    @apply text-[#5E50A1];
+  }
+  .bg-base {
+    @apply bg-[#F6F7F8];
+  }
+  .base-rounded {
+    @apply rounded-md;
+  }
+  .bg-orange {
+    @apply bg-[#FBB017];
+  }
+  .text-orange {
+    @apply text-[#FBB017];
+  }
+  .text-utama {
+    @apply text-[#1F2A36];
+  }
+  .text-second {
+    @apply text-[#46505C];
+  }
+}
+
+.shadow-navbar {
+  /* box-shadow: 0px -2px 10px 1px #1f2a36; */
+  box-shadow: 0px -2px 10px 1px black;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
