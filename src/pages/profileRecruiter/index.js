@@ -40,7 +40,7 @@ export const ProfileRecruiter = () => {
                 <img
                   src={
                     userDataDetail.avatar
-                      ? `http://localhost:5000/uploads/images/${userDataDetail.avatar}`
+                      ? `https://hellojob.up.railway.app/uploads/images/${userDataDetail.avatar}`
                       : ""
                   }
                   alt=""

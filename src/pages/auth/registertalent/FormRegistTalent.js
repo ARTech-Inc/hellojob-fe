@@ -31,7 +31,7 @@ export const FormRegistTalent = () => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/v1/auth/register",
+      url: "https://hellojob.up.railway.app/api/v1/auth/register",
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" },
     })

@@ -38,7 +38,7 @@ export const EditBioForm = () => {
     event.preventDefault();
     axios({
       method: "PATCH",
-      url: `http://localhost:5000/api/v1/users/${userId}`,
+      url: `https://hellojob.up.railway.app/api/v1/users/${userId}`,
       data: bioFormData,
       headers: {
         "Content-Type": "multipart/form-data",

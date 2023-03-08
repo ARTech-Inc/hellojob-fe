@@ -15,7 +15,7 @@ export const AddWorkExpForm = () => {
     event.preventDefault();
     axios({
       method: "POST",
-      url: `http://localhost:5000/api/v1/addExperience/${userId}`,
+      url: `https://hellojob.up.railway.app/api/v1/addExperience/${userId}`,
       data: workData,
     })
       .then((result) => {

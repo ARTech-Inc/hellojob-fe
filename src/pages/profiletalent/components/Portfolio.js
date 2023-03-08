@@ -27,7 +27,7 @@ export const Portfolio = () => {
                     //   src={require("../../../assets/img/reminder-app.png")}
                     src={
                       p
-                        ? `http://localhost:5000/uploads/images/${p.filename}`
+                        ? `https://hellojob.up.railway.app/uploads/images/${p.filename}`
                         : ""
                     }
                     alt=""

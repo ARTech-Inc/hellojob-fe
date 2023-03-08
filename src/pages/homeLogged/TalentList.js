@@ -31,7 +31,7 @@ export const TalentList = () => {
               <img
                 src={
                   item.avatar
-                    ? `http://localhost:5000/uploads/images/${item.avatar}`
+                    ? `https://hellojob.up.railway.app/uploads/images/${item.avatar}`
                     : `http://localhost:3000/images/default-avatar.jpg`
                 }
                 alt=""

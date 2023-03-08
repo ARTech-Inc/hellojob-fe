@@ -17,8 +17,8 @@ export const getDataUsers = (filter) => {
     dispatch(getDataUsersRequest());
     return (
       axios
-        // .get(`http://localhost:5000/api/v1/users?${filter}`)
-        .get(`http://localhost:5000/api/v1/users${filter}`)
+        // .get(`https://hellojob.up.railway.app/api/v1/users?${filter}`)
+        .get(`https://hellojob.up.railway.app/api/v1/users${filter}`)
         .then((result) => {
           dispatch(getDataUsersSuccess(result.data));
         })

@@ -33,7 +33,7 @@ export const ExperiencePortfolio = () => {
                     <img
                       src={
                         p
-                          ? `http://localhost:5000/uploads/images/${p.filename}`
+                          ? `https://hellojob.up.railway.app/uploads/images/${p.filename}`
                           : ""
                       }
                       alt=""

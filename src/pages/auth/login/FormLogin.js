@@ -20,7 +20,7 @@ export const FormLogin = () => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:5000/api/v1/auth/login",
+      url: "https://hellojob.up.railway.app/api/v1/auth/login",
       data: loginData,
     })
       .then((result) => {

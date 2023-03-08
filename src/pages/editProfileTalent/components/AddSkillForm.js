@@ -25,7 +25,7 @@ export const AddSkillForm = () => {
     event.preventDefault();
     axios({
       method: "POST",
-      url: `http://localhost:5000/api/v1/addSkill/${userId}`,
+      url: `https://hellojob.up.railway.app/api/v1/addSkill/${userId}`,
       data: skill,
     })
       .then((result) => {

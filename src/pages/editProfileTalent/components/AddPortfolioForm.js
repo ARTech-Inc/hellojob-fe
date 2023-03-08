@@ -21,7 +21,7 @@ export const AddPortfolioForm = () => {
     event.preventDefault();
     axios({
       method: "POST",
-      url: `http://localhost:5000/api/v1/addPortfolio/${userId}`,
+      url: `https://hellojob.up.railway.app/api/v1/addPortfolio/${userId}`,
       data: portfolioFormData,
       headers: {
         "Content-Type": "multipart/form-data",

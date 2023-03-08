@@ -18,7 +18,7 @@ export const Auth = ({ setIsLogin }) => {
   const [avatar, setAvatar] = useState("");
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/v1/users/${userLoginID}`)
+      .get(`https://hellojob.up.railway.app/api/v1/users/${userLoginID}`)
       .then((result) => {
         setAvatar(result.data.data.avatar);
       })
@@ -39,7 +39,7 @@ export const Auth = ({ setIsLogin }) => {
               <img
                 src={
                   avatar
-                    ? `http://localhost:5000/uploads/images/${avatar}`
+                    ? `https://hellojob.up.railway.app/uploads/images/${avatar}`
                     : `https://hellojobb.vercel.app/images/default-avatar.jpg`
                 }
                 alt=""
