@@ -71,14 +71,15 @@ export const AddSkillForm = () => {
         </button>
       </div>
       <div className="result-skill-row flex flex-wrap gap-2">
-        {dataSkillArray
-          ? dataSkillArray.map((sk) => {
+        {console.log(dataSkillArray)}
+        {dataSkillArray !== undefined && dataSkillArray !== null
+          ? dataSkillArray?.map((sk) => {
               return (
                 <div
-                  key={sk.skill_id}
+                  key={sk?.skill_id}
                   className="skill-box flex p-2 bg-orange base-rounded justify-between w-40"
                 >
-                  <p className="text-white">{sk.skill_name}</p>
+                  <p className="text-white">{sk?.skill_name}</p>
                   <div className="flex items-center justify-center gap-x-3">
                     <img
                       src={require("../../../assets/img/edit.png")}

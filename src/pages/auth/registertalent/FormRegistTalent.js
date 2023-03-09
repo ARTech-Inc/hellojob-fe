@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { OrangeBtn } from "../../../components/OrangeBtn";
+import illuminati from "../../../assets/img/illuminati.png";
 
 export const FormRegistTalent = () => {
   const [registerData, setRegisterData] = useState({
@@ -45,6 +46,15 @@ export const FormRegistTalent = () => {
         // console.log(err.response.data);
         setValidate({ error: true, message: err.response.data.message });
       });
+  };
+
+  const showPw = () => {
+    let x = document.getElementById("pwInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
   };
 
   return (
@@ -92,19 +102,28 @@ export const FormRegistTalent = () => {
           className="py-5 px-3 base-rounded"
         />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-full">
         <label for="">Kata Sandi</label>
-        <input
-          onChange={(e) => {
-            setRegisterData({
-              ...registerData,
-              password: e.target.value,
-            });
-          }}
-          type="password"
-          placeholder="Masukan kata sandi"
-          className="py-5 px-3 base-rounded"
-        />
+        <div className="flex pr-6 w-full justify-between base-rounded items-center bg-white">
+          <input
+            onChange={(e) => {
+              setRegisterData({
+                ...registerData,
+                password: e.target.value,
+              });
+            }}
+            type="password"
+            placeholder="Masukan kata sandi"
+            className="py-5 px-3 w-full focus:outline-none"
+            id="pwInput"
+          />
+          <img
+            src={illuminati}
+            alt="illuminati-eye"
+            onClick={showPw}
+            className="cursor-pointer w-6 h-6"
+          />
+        </div>
       </div>
       <div className="flex flex-col gap-2">
         <label for="">Konfirmasi kata sandi</label>

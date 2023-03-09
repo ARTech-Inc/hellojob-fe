@@ -8,8 +8,8 @@ import { getDataUsers } from "../../redux/actions/users";
 export const Hire = () => {
   const userDetail = useSelector((state) => state.users);
   const userDataDetail = userDetail.data;
-  const loadingUser = userDetail.loading;
-  const errorUser = userDetail.error;
+  // const loadingUser = userDetail.loading;
+  // const errorUser = userDetail.error;
   const dispatch = useDispatch();
   const { userId } = useParams();
 
@@ -35,8 +35,8 @@ export const Hire = () => {
               <img
                 src={
                   userDataDetail.avatar
-                    ? `https://hellojob.up.railway.app/uploads/images/${userDataDetail.avatar}`
-                    : ""
+                    ? `https://hellojob.up.railway.app/images/${userDataDetail.avatar}`
+                    : "http://localhost:3000/images/default-avatar.jpg"
                 }
                 alt={userDataDetail.name}
                 className="w-32 h-32 rounded-full"
@@ -47,17 +47,23 @@ export const Hire = () => {
                 {userDataDetail ? userDataDetail.name : ""}
               </h2>
               <p className="text-lg text-[#1F2A36]">
-                {userDataDetail ? userDataDetail.job_desk : ""}
+                {userDataDetail.job_desk !== ""
+                  ? userDataDetail.job_desk
+                  : "(Empty job desk)"}
               </p>
               <p className="text-[#9EA0A5]">
-                {userDataDetail ? userDataDetail.job_status : ""}
+                {userDataDetail.job_status !== ""
+                  ? userDataDetail.job_status
+                  : "(Empty job status)"}
               </p>
             </div>
             <div className="flex flex-col gap-y-1">
               <div className="flex gap-x-2 items-center">
                 <img src={require("../../assets/img/loc.png")} alt="" />
                 <p className="text-[#9EA0A5]">
-                  {userDataDetail ? userDataDetail.domisili : ""}
+                  {userDataDetail.domisili
+                    ? userDataDetail.domisili
+                    : "(Empty domisili)"}
                 </p>
               </div>
               <div className="flex gap-x-2 items-center">
@@ -67,7 +73,9 @@ export const Hire = () => {
                 </p>
               </div>
               <p className="text-[#9EA0A5] pt-2">
-                {userDataDetail ? userDataDetail.description : ""}
+                {userDataDetail.description
+                  ? userDataDetail?.description
+                  : "(Empty description)"}
               </p>
             </div>
           </div>
@@ -81,7 +89,9 @@ export const Hire = () => {
                         {skill.skill_name}
                       </p>
                     ) : (
-                      ""
+                      <p className="bg-[#FBB017] text-white px-8 py-2 border-[1px] border-[#b87a00] base-rounded">
+                        Empty
+                      </p>
                     );
                   })
                 : ""}
@@ -97,8 +107,8 @@ export const Hire = () => {
               </span>
             </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-              euismod ipsum et dui rhoncus auctor.
+              Coba lebih dekat dengan talent kami. Dapatkan talent terbaik kami
+              sekarang juga!
             </p>
           </div>
           <div className="flex flex-col gap-2">

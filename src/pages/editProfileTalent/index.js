@@ -12,8 +12,8 @@ import { EditBioForm } from "./components/EditBioForm";
 export const EditProfileTalent = () => {
   const userDetail = useSelector((state) => state.users);
   const userDataDetail = userDetail.data;
-  const loadingUser = userDetail.loading;
-  const errorUser = userDetail.error;
+  // const loadingUser = userDetail.loading;
+  // const errorUser = userDetail.error;
   const dispatch = useDispatch();
   const { userId } = useParams();
 
@@ -32,9 +32,9 @@ export const EditProfileTalent = () => {
               <div className=" w-full flex justify-center items-center">
                 <img
                   src={
-                    userDataDetail.avatar
-                      ? `https://hellojob.up.railway.app/uploads/images/${userDataDetail.avatar}`
-                      : ""
+                    userDataDetail?.avatar !== null
+                      ? `https://hellojob.up.railway.app/images/${userDataDetail?.avatar}`
+                      : `http://localhost:3000/images/default-avatar.jpg`
                   }
                   alt={userDataDetail.name}
                   className="w-32 h-32 rounded-full"
@@ -45,17 +45,23 @@ export const EditProfileTalent = () => {
                   {userDataDetail ? userDataDetail.name : ""}
                 </h2>
                 <p className="text-lg text-[#1F2A36]">
-                  {userDataDetail ? userDataDetail.job_desk : ""}
+                  {userDataDetail.job_desk !== ""
+                    ? userDataDetail.job_desk
+                    : "(Empty job_desk)"}
                 </p>
                 <p className="text-[#9EA0A5]">
-                  {userDataDetail ? userDataDetail.job_status : ""}
+                  {userDataDetail.job_status !== ""
+                    ? userDataDetail.job_status
+                    : "(Empty job status)"}
                 </p>
               </div>
               <div className="flex flex-col gap-y-1">
                 <div className="flex gap-x-2 items-center">
                   <img src={require("../../assets/img/loc.png")} alt="" />
                   <p className="text-[#9EA0A5]">
-                    {userDataDetail ? userDataDetail.domisili : ""}
+                    {userDataDetail.domisili
+                      ? userDataDetail.domisili
+                      : "(Empty domisili)"}
                   </p>
                 </div>
                 <div className="flex gap-x-2 items-center">
@@ -65,7 +71,10 @@ export const EditProfileTalent = () => {
                   </p>
                 </div>
                 <p className="text-[#9EA0A5] pt-2">
-                  {userDataDetail ? userDataDetail.description : ""}
+                  {userDataDetail.description !== "null" &&
+                  userDataDetail.description !== null
+                    ? userDataDetail.description
+                    : "(Empty description)"}
                 </p>
               </div>
             </div>

@@ -9,31 +9,42 @@ import { TabTitle } from "../../utils/GeneralFunc";
 import { ExperiencePortfolio } from "./components/ExperiencePortfolio";
 
 export const ProfileTalent = () => {
-  const userDetail = useSelector((state) => state.users);
-  const userDataDetail = userDetail.data;
-  const loadingUser = userDetail.loading;
-  const errorUser = userDetail.error;
-  const dispatch = useDispatch();
-  const { userId } = useParams();
+  // const userDetail = useSelector((state) => state.users);
+  // const userDataDetail = userDetail.data;
+  // const loadingUser = userDetail.loading;
+  // const errorUser = userDetail.error;
+  // const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   dispatch(getDataUsers(`/${userId}`));
+  // }, []);
+  // const dataSkillArray = userDataDetail.skills ? userDataDetail.skills : "";
+
+  const { userId } = useParams();
+  const URL = `https://hellojob.up.railway.app`;
+  const [datas, setDatas] = useState({});
   useEffect(() => {
-    dispatch(getDataUsers(`/${userId}`));
+    const getDataUser = async () => {
+      try {
+        const response = await axios.get(`${URL}/api/v1/users/${userId}`);
+        const data = response.data.data;
+        setDatas(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getDataUser();
   }, []);
 
-  // console.log(userDataDetail);
-  const dataSkillArray = userDataDetail.skills ? userDataDetail.skills : "";
+  const skillArray = datas?.skills;
 
   const navigate = useNavigate();
-  const getDetailUser = (id) => {
-    navigate(`/profile/talent/hire/${id}`);
-  };
+
   TabTitle("HelloJob - Profile");
-  if (loadingUser) {
-    return <h1>Loading...</h1>;
-  }
-  // if (errorUser) {
-  //   return <h1>Error..</h1>;
+  // if (loadingUser) {
+  //   return <h1>Loading...</h1>;
   // }
+
   return (
     <div className="relative">
       <Navbar />
@@ -46,46 +57,49 @@ export const ProfileTalent = () => {
               <div className=" w-full flex justify-center items-center">
                 <img
                   src={
-                    userDataDetail.avatar
-                      ? `https://hellojob.up.railway.app/uploads/images/${userDataDetail.avatar}`
-                      : ""
+                    datas?.avatar !== null
+                      ? `https://hellojob.up.railway.app/images/${datas?.avatar}`
+                      : `http://localhost:3000/images/default-avatar.jpg`
                   }
-                  alt={userDataDetail.name}
+                  alt={datas?.name}
                   className="w-32 h-32 rounded-full"
                 />
               </div>
               <div className="flex flex-col">
                 <h2 className="text-2xl font-bold text-[#1F2A36]">
-                  {userDataDetail ? userDataDetail.name : ""}
+                  {datas ? datas.name : ""}
                 </h2>
                 <p className="text-lg text-[#1F2A36]">
-                  {userDataDetail ? userDataDetail.job_desk : ""}
+                  {datas.job_desk !== "" ? datas.job_desk : `(Empty job desk)`}
                 </p>
                 <p className="text-[#9EA0A5]">
-                  {userDataDetail ? userDataDetail.job_status : ""}
+                  {datas.job_status !== ""
+                    ? datas.job_status
+                    : `(Empty job status)`}
                 </p>
               </div>
               <div className="flex flex-col gap-y-1">
                 <div className="flex gap-x-2 items-center">
                   <img src={require("../../assets/img/loc.png")} alt="" />
                   <p className="text-[#9EA0A5]">
-                    {userDataDetail ? userDataDetail.domisili : ""}
+                    {datas.domisili ? datas.domisili : "(Empty domisili)"}
                   </p>
                 </div>
                 <div className="flex gap-x-2 items-center">
                   <img src={require("../../assets/img/phone.png")} alt="" />
-                  <p className="text-[#9EA0A5]">
-                    {userDataDetail ? userDataDetail.phone : ""}
-                  </p>
+                  <p className="text-[#9EA0A5]">{datas ? datas.phone : ""}</p>
                 </div>
                 <p className="text-[#9EA0A5] pt-2">
-                  {userDataDetail ? userDataDetail.description : ""}
+                  {datas.description !== "null" && datas.description !== null
+                    ? datas.description
+                    : `(Empty description)`}
                 </p>
               </div>
               <button
-                onClick={(id) => {
-                  getDetailUser(userDataDetail.id);
-                }}
+                onClick={() => navigate(`/profile/talent/hire/${datas.id}`)}
+                // onClick={(id) => {
+                //   getDetailUser(userDataDetail.id);
+                // }}
                 className="bg-purple base-rounded text-white mt-1 py-5 border-[1px] border-[#5E50A1] hover:bg-transparent hover:text-purple duration-200"
               >
                 Hire
@@ -94,39 +108,46 @@ export const ProfileTalent = () => {
             <div className="skill w-full flex flex-col gap-y-3">
               <h2 className="text-2xl font-bold text-[#1F2A36]">Skill</h2>
               <div className="flex flex-wrap gap-3">
-                {dataSkillArray
-                  ? dataSkillArray.map((skill) => {
-                      return skill ? (
-                        <p
-                          key={skill.skill_id}
-                          className="bg-[#FBB017] text-white px-8 py-2 border-[1px] border-[#b87a00] base-rounded"
-                        >
-                          {skill.skill_name}
-                        </p>
-                      ) : (
-                        ""
-                      );
-                    })
-                  : ""}
+                {skillArray !== undefined && skillArray !== null ? (
+                  skillArray?.map((skill) => {
+                    return (
+                      <p
+                        key={skill?.skill_id}
+                        className="bg-[#FBB017] text-white px-8 py-2 border-[1px] border-[#b87a00] base-rounded"
+                      >
+                        {skill?.skill_name}
+                      </p>
+                    );
+                  })
+                ) : (
+                  <p className="bg-[#FBB017] text-white px-8 py-2 border-[1px] border-[#b87a00] base-rounded">
+                    Empty
+                  </p>
+                )}
               </div>
             </div>
             <div className="socmed w-full flex flex-col gap-y-5 pt-6">
               <div className="flex gap-x-3 items-center">
                 <img src={require("../../assets/img/mail.png")} alt="" />
                 <p className="text-[#9EA0A5]">
-                  {userDataDetail ? userDataDetail.email : ""}
+                  {datas.email ? datas.email : `(Empty email)`}
                 </p>
               </div>
               <div className="flex gap-x-3 items-center">
                 <img src={require("../../assets/img/instagram.png")} alt="" />
                 <p className="text-[#9EA0A5]">
-                  {userDataDetail ? userDataDetail.akun_instagram : ""}
+                  {datas.akun_instagram !== "null" &&
+                  datas.akun_instagram !== null
+                    ? datas.akun_instagram
+                    : `(Empty akun instagram)`}
                 </p>
               </div>
               <div className="flex gap-x-3 items-center">
                 <img src={require("../../assets/img/github.png")} alt="" />
                 <p className="text-[#9EA0A5]">
-                  {userDataDetail ? userDataDetail.akun_github : ""}
+                  {datas.akun_github !== "null" && datas.akun_github !== null
+                    ? datas.akun_github
+                    : `(Empty akun github)`}
                 </p>
               </div>
             </div>

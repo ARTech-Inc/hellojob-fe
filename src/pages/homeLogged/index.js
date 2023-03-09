@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Footer } from "../../components/footer";
@@ -13,13 +14,14 @@ export const HomeLogged = () => {
   const [refetchCatJobStatus, setRefetchCatJobStatus] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getDataUsers(`?search=${search}`));
-  });
+  // useEffect(() => {
+  //   dispatch(getDataUsers(`?search=${search}`));
+  // });
 
-  useEffect(() => {
-    dispatch(getDataUsers(`?catJobStatus=${catJobStatus}`));
-  }, [refetchCatJobStatus, catJobStatus]);
+  // useEffect(() => {
+  //   dispatch(getDataUsers(`?catJobStatus=${catJobStatus}`));
+  // }, [refetchCatJobStatus, catJobStatus]);
+
   TabTitle("HelloJob - Home");
   return (
     <>
@@ -84,9 +86,11 @@ export const HomeLogged = () => {
             />
           </div>
         </section>
-        <section className="talent-list-section px-3 md:px-32 w-full h-[300vh]">
-          <TalentList />
-        </section>
+        <TalentList
+          search={search}
+          catJobStatus={catJobStatus}
+          refetchCatJobStatus={refetchCatJobStatus}
+        />
         <PaginationBar />
       </main>
       <Footer />

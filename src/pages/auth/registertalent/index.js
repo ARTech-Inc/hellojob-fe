@@ -13,8 +13,7 @@ export const RegisterTalent = () => {
         <div className="flex flex-col gap-3">
           <h4 className="text-2xl font-bold text-utama">Halo, Pewpeople</h4>
           <p className="text-[#46505C]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
-            ipsum et dui rhoncus auctor.
+            Dapatkan peluang pekerjaan di Hellojob sekarang!
           </p>
         </div>
         <FormRegistTalent />

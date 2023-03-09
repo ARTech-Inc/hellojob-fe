@@ -39,7 +39,7 @@ export const Auth = ({ setIsLogin }) => {
               <img
                 src={
                   avatar
-                    ? `https://hellojob.up.railway.app/uploads/images/${avatar}`
+                    ? `https://hellojob.up.railway.app/images/${avatar}`
                     : `https://hellojobb.vercel.app/images/default-avatar.jpg`
                 }
                 alt=""
