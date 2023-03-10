@@ -6,24 +6,24 @@ export const Section2 = () => {
     <section className="flex flex-col gap-y-6 md:flex-row-reverse w-full md:gap-x-10 md:h-[80vh]">
       <div className="flex flex-col gap-y-6 md:w-1/2 justify-center">
         <h2 className="text-utama text-3xl md:text-4xl font-bold">
-          Kenapa harus mencari tallent di HelloJob?
+          Kenapa harus mencari talent di HelloJob?
         </h2>
         <ul className="flex flex-col gap-y-6">
           <div className="flex gap-x-2 items">
             <img src={require("../../../assets/img/list-purple.png")} alt="" />
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Memiliki skill tinggi dan telah terverifikasi.</p>
           </div>
           <div className="flex gap-x-2 items">
             <img src={require("../../../assets/img/list-purple.png")} alt="" />
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Berpengalaman dalam membuat project kecil maupun corporate.</p>
           </div>
           <div className="flex gap-x-2 items">
             <img src={require("../../../assets/img/list-purple.png")} alt="" />
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Beretos kerja tinggi.</p>
           </div>
           <div className="flex gap-x-2 items">
             <img src={require("../../../assets/img/list-purple.png")} alt="" />
-            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Dapat diandalkan dalam berbagai situasi.</p>
           </div>
         </ul>
       </div>

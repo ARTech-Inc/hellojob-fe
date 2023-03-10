@@ -17,8 +17,15 @@ export const Footer = () => {
       <div className="text-white flex justify-between pt-5">
         <p>2020 HelloJob. All right reserved</p>
         <div className="flex gap-x-3">
-          <p>Telepon</p>
-          <p>Email</p>
+          <p>
+            {/* <a href="whatsapp://send?text=Hello&phone=+6285219891357"> */}
+            <a href="https://api.whatsapp.com/send?phone=6285219891357">
+              +62 852 1989 1357
+            </a>
+          </p>
+          <p>
+            <a href="mailto:artechteam04@gmail.com">artechteam04@gmail.com</a>
+          </p>
         </div>
       </div>
     </footer>

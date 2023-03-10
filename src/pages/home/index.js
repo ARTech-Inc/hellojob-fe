@@ -14,6 +14,9 @@ export const LandingPage = () => {
 
   return (
     <>
+      <nav className="navbar-mobile w-full h-[10vh] md:hidden flex px-3 items-center justify-center fixed top-0 left-0 bg-white z-20 shadow-2xl">
+        <p className="text-purple text-xl cursor-pointer font-bold">HelloJob</p>
+      </nav>
       <Navbar />
       <main className="bg-base h-[450vh] gap-y-16 flex flex-col px-3 pt-20 md:px-32">
         <Section1 />
@@ -23,7 +26,7 @@ export const LandingPage = () => {
         <section>
           <div className="bg-purple w-full h-[20vh] md:h-[30vh] rounded-tl-3xl rounded-br-3xl flex justify-between items-center px-6 md:px-14">
             <p className="text-white text-xl md:text-3xl">
-              Lorem ipsum dolor sit amet
+              Temukan talent terbaik kami untuk Anda.
             </p>
             <button
               onClick={() => {

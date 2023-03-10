@@ -11,8 +11,7 @@ export const Section1 = () => {
           Talenta terbaik negeri untuk perubahan revolusi 4.0
         </h2>
         <p className="text-second">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
-          ipsum et dui rhoncus auctor.
+          Temukan talenta terbaik yang pernah ada di abad ini. Apakah Anda siap?
         </p>
         <button
           onClick={() => {

@@ -25,6 +25,9 @@ export const HomeLogged = () => {
   TabTitle("HelloJob - Home");
   return (
     <>
+      <nav className="navbar-mobile w-full h-[10vh] md:hidden flex px-3 items-center justify-center fixed top-0 left-0 bg-white z-20 shadow-2xl">
+        <p className="text-purple text-xl cursor-pointer font-bold">HelloJob</p>
+      </nav>
       <Navbar />
       <main className="w-full h-[300vh] pt-16 md:pt-20 bg-[#E2E5ED] flex flex-col gap-y-8">
         <header className="bg-purple w-full h-[15vh] md:h-[20vh] flex items-center px-3 md:px-32 text-2xl font-bold text-white">

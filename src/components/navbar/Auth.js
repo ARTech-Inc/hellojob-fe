@@ -27,7 +27,7 @@ export const Auth = ({ setIsLogin }) => {
       });
   }, []);
   return (
-    <div className="flex gap-x-3 md:gap-x-6 items-center">
+    <div className="flex gap-x-3 md:gap-x-6 max-sm:space-x-10 items-center">
       <img src={require("../../assets/img/bell.png")} alt="" />
       <Link to="/chat">
         <img src={require("../../assets/img/mail-navbar.png")} alt="" />
