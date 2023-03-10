@@ -29,6 +29,9 @@ export const ProfileRecruiter = () => {
   }, []);
   return (
     <>
+      <nav className="navbar-mobile w-full h-[10vh] md:hidden flex px-3 items-center justify-center fixed top-0 left-0 bg-white z-20 shadow-2xl">
+        <p className="text-purple text-xl cursor-pointer font-bold">HelloJob</p>
+      </nav>
       <Navbar />
       <main className="w-full h-[150vh] md:h-[200vh] pt-40 px-3 flex justify-center bg-base">
         <div className="profile-container w-full md:w-[80%] h-[70%] relative flex flex-col items-center base-rounded shadow-xl">

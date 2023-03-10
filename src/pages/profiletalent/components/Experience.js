@@ -16,13 +16,14 @@ export const Experience = () => {
     getUser();
   }, []);
   const workExperience = datas.work_experiences;
+  console.log(workExperience);
 
   return (
     <div className="experience-row flex flex-col  md:flex-row md:flex-wrap gap-6 max-sm:gap-0">
       {workExperience &&
         workExperience?.map((work) => {
           return work ? (
-            <div className="border-b-[1px] border-[#E2E5ED] w-full h-52 flex pt-3">
+            <div className="border-b-[1px] border-[#E2E5ED] w-full h-52 flex pt-3 flex-col md:flex-row">
               <div className="left md:w-[15%]">
                 <img src={require("../../../assets/img/suitcase.png")} alt="" />
               </div>
@@ -42,9 +43,7 @@ export const Experience = () => {
                 </div>
                 <div className="description">
                   <p className="text-[#1F2A36] text-base">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Vestibulum erat orci, mollis nec gravida sed, ornare quis
-                    urna. Curabitur eu lacus fringilla, vestibulum risus at.
+                    {work?.deskripsi && work?.deskripsi}
                   </p>
                 </div>
               </div>

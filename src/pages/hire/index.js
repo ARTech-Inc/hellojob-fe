@@ -27,6 +27,9 @@ export const Hire = () => {
     : "";
   return (
     <>
+      <nav className="navbar-mobile w-full h-[10vh] md:hidden flex px-3 items-center justify-center fixed top-0 left-0 bg-white z-20 shadow-2xl">
+        <p className="text-purple text-xl cursor-pointer font-bold">HelloJob</p>
+      </nav>
       <Navbar />
       <main className="w-full bg-base h-[300vh] md:h-[200vh] pt-28 px-3 flex flex-col md:flex-row md:px-32 gap-16">
         <div className="profile-card bg-white w-full md:w-[60%] base-rounded h-[130vh] px-5 py-5 flex flex-col gap-y-8">

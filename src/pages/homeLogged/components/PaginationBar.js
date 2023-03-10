@@ -21,7 +21,7 @@ export const PaginationBar = () => {
             setRefetchPage(true);
             setPage(1);
           }}
-          className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white"
+          className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white hover:bg-purple hover:text-white"
         >
           {" "}
           1{" "}
@@ -31,7 +31,7 @@ export const PaginationBar = () => {
             setRefetchPage(true);
             setPage(2);
           }}
-          className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white"
+          className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white hover:bg-purple hover:text-white"
         >
           {" "}
           2{" "}
@@ -41,7 +41,7 @@ export const PaginationBar = () => {
             setRefetchPage(true);
             setPage(3);
           }}
-          className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white"
+          className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white hover:bg-purple hover:text-white"
         >
           {" "}
           3{" "}
@@ -51,7 +51,7 @@ export const PaginationBar = () => {
             setRefetchPage(true);
             setPage(4);
           }}
-          className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white"
+          className="border-[1px] border-[#DDDDDE] w-16 h-16 flex items-center justify-center base-rounded bg-white hover:bg-purple hover:text-white"
         >
           {" "}
           4{" "}
