@@ -27,6 +27,12 @@
   .text-second {
     @apply text-[#46505C];
   }
+  .active {
+    @apply text-[#1F2A36] text-2xl font-bold border-b-2 border-[#5e50a1] duration-200;
+  }
+  .non-active {
+    @apply text-2xl;
+  }
 }
 
 .shadow-navbar {
