@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Footer } from "../../components/footer";
@@ -8,6 +8,7 @@ import { AddPortfolioForm } from "./components/AddPortfolioForm";
 import { AddSkillForm } from "./components/AddSkillForm";
 import { AddWorkExpForm } from "./components/AddWorkExpForm";
 import { EditBioForm } from "./components/EditBioForm";
+import axios from "axios";
 
 export const EditProfileTalent = () => {
   const userDetail = useSelector((state) => state.users);
@@ -17,9 +18,37 @@ export const EditProfileTalent = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
 
+  const [refetch, setRefetch] = useState(false);
   useEffect(() => {
     dispatch(getDataUsers(`/${userId}`));
-  }, []);
+  }, [refetch]);
+
+  const onImageUpload = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    // setImagePreview(URL.createObjectURL(file));
+  };
+
+  const [image, setImage] = useState();
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const data = new FormData(e.target);
+    data.append("ava", image);
+    // console.log(image);
+
+    axios
+      .patch(`https://hellojob.up.railway.app/api/v1/users/${userId}`, data, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        alert("Successfully change picture");
+        setRefetch(!refetch);
+      })
+      .catch((err) => console.log(err.message));
+  };
 
   const navigate = useNavigate();
   return (
@@ -29,16 +58,22 @@ export const EditProfileTalent = () => {
         <section className="w-full md:w-[60%] h-[90vh] md:h-[120vh] flex flex-col gap-y-5 sm:mb-10">
           <div className="profile-card shadow-2xl bg-white w-full base-rounded h-[80%] md:h-[150vh] px-5 py-5 flex flex-col gap-y-8">
             <div className="bio flex flex-col gap-y-3">
-              <div className=" w-full flex justify-center items-center">
-                <img
-                  src={
-                    userDataDetail?.avatar !== null
-                      ? `https://hellojob.up.railway.app/images/${userDataDetail?.avatar}`
-                      : `http://localhost:3000/images/default-avatar.jpg`
-                  }
-                  alt={userDataDetail.name}
-                  className="w-32 h-32 rounded-full"
-                />
+              <div className=" w-full flex flex-col justify-center items-center">
+                <form onSubmit={onSubmit}>
+                  <img
+                    src={
+                      userDataDetail?.avatar !== null
+                        ? `https://hellojob.up.railway.app/images/${userDataDetail?.avatar}`
+                        : `http://localhost:3000/images/default-avatar.jpg`
+                    }
+                    alt={userDataDetail.name}
+                    className="w-32 h-32 rounded-full"
+                  />
+                  <input type="file" onChange={(e) => onImageUpload(e)} />
+                  <button type="submit" className="bg-purple p-[10px]">
+                    Change Picture
+                  </button>
+                </form>
               </div>
               <div className="flex flex-col">
                 <h2 className="text-2xl font-bold text-[#1F2A36]">

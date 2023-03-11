@@ -71,7 +71,7 @@ export const AddSkillForm = () => {
         </button>
       </div>
       <div className="result-skill-row flex flex-wrap gap-2">
-        {console.log(dataSkillArray)}
+        {/* {console.log(dataSkillArray)} */}
         {dataSkillArray !== undefined && dataSkillArray !== null
           ? dataSkillArray?.map((sk) => {
               return (
