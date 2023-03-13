@@ -67,10 +67,14 @@ export const EditProfileTalent = () => {
                         : `http://localhost:3000/images/default-avatar.jpg`
                     }
                     alt={userDataDetail.name}
-                    className="w-32 h-32 rounded-full"
+                    className="w-32 h-32 rounded-full "
                   />
-                  <input type="file" onChange={(e) => onImageUpload(e)} />
-                  <button type="submit" className="bg-purple p-[10px]">
+                  <input
+                    type="file"
+                    onChange={(e) => onImageUpload(e)}
+                    className="my-[10px]"
+                  />
+                  <button type="submit" className="bg-purple p-[10px] rounded">
                     Change Picture
                   </button>
                 </form>
