@@ -5,12 +5,12 @@ export const UnAuth = () => {
   return (
     <div className="flex gap-x-3">
       <Link to="/optionlogin">
-        <button className="bg-white text-purple border-[2px] border-[#5E50A1] px-5 py-3 base-rounded">
+        <button className="bg-white text-purple border-[2px] border-[#5E50A1] hover:bg-[#5E50A1] hover:text-white px-5 py-3 base-rounded duration-200">
           Masuk
         </button>
       </Link>
       <Link to="/optionregister">
-        <button className="bg-purple border-[2px] border-[#5E50A1] text-white px-5 py-3 base-rounded">
+        <button className="bg-purple border-[2px] border-[#5E50A1] hover:bg-white hover:text-[#5E50A1] text-white px-5 py-3 base-rounded duration-200">
           Daftar
         </button>
       </Link>

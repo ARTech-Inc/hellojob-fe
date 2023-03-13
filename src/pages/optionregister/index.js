@@ -21,7 +21,7 @@ export const OptionRegister = () => {
           </h2>
           <div className="">
             <Link to="/auth/register/talent">
-              <button className="w-full bg-white text-purple py-5 base-rounded font-bold">
+              <button className="w-full bg-white hover:bg-transparent border-[2px] border-white hover:text-white text-purple py-5 base-rounded font-bold">
                 Daftar sebagai pekerja
               </button>
             </Link>
@@ -33,7 +33,7 @@ export const OptionRegister = () => {
               </div>
             </div>
             <Link to="/auth/register/recruiter">
-              <button className="w-full bg-transparent text-white border-[1px] border-white py-5 base-rounded font-bold">
+              <button className="w-full bg-transparent text-white border-[2px] hover:bg-white hover:text-[#5E50A1] border-white py-5 base-rounded font-bold">
                 Daftar sebagai perekrut
               </button>
             </Link>

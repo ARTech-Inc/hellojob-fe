@@ -12,6 +12,8 @@ export const HomeLogged = () => {
   const [search, setSearch] = useState("");
   const [catJobStatus, setCatJobStatus] = useState("");
   const [refetchCatJobStatus, setRefetchCatJobStatus] = useState(false);
+  const [page, setPage] = useState(1);
+  const [refetchPage, setRefetchPage] = useState(false);
   const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -93,8 +95,13 @@ export const HomeLogged = () => {
           search={search}
           catJobStatus={catJobStatus}
           refetchCatJobStatus={refetchCatJobStatus}
+          page={page}
         />
-        <PaginationBar />
+        <PaginationBar
+          page={page}
+          setPage={setPage}
+          setRefetchPage={setRefetchPage}
+        />
       </main>
       <Footer />
     </>

@@ -4,7 +4,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { getDataUsers } from "../../redux/actions/users";
 
-export const TalentList = ({ search, catJobStatus, refetchJobStatus }) => {
+export const TalentList = ({
+  search,
+  catJobStatus,
+  refetchJobStatus,
+  page,
+}) => {
   // const users = useSelector((state) => state.users);
   // const usersData = users.data;
   // const loadingUsers = users.loading;
@@ -24,7 +29,7 @@ export const TalentList = ({ search, catJobStatus, refetchJobStatus }) => {
         const response = await axios.get(
           `${URL}/api/v1/users?${search ? `search=${search}` : ""}&${
             catJobStatus ? `catJobStatus=${catJobStatus}` : ""
-          }`
+          }${page ? `&page=${page}` : ""}`
         );
         const data = response.data.data;
         setRefetch(!refetch);
@@ -35,7 +40,6 @@ export const TalentList = ({ search, catJobStatus, refetchJobStatus }) => {
     };
     getDataUser();
   }, [refetch, refetchJobStatus]);
-  // console.log(datas);
 
   // if (loadingUsers) {
   //   return <h1>Loading...</h1>;

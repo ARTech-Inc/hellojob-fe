@@ -21,7 +21,7 @@ export const OptionLogin = () => {
           </h2>
           <div className="">
             <Link to="/auth/login">
-              <button className="w-full bg-white text-purple py-5 base-rounded font-bold">
+              <button className="w-full bg-white text-purple py-5 hover:bg-transparent hover:text-white border-[2px] border-white base-rounded font-bold">
                 Masuk sebagai pekerja
               </button>
             </Link>
@@ -33,7 +33,7 @@ export const OptionLogin = () => {
               </div>
             </div>
             <Link to="/auth/login">
-              <button className="w-full bg-transparent text-white border-[1px] border-white py-5 base-rounded font-bold">
+              <button className="w-full bg-transparent hover:bg-white hover:text-[#5E50A1] text-white border-[2px] border-white py-5 base-rounded font-bold">
                 Masuk sebagai perekrut
               </button>
             </Link>

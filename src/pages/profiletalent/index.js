@@ -40,7 +40,7 @@ export const ProfileTalent = () => {
 
   const navigate = useNavigate();
 
-  // console.log(datas);
+  const roleUser = datas?.role;
 
   TabTitle("HelloJob - Profile");
   // if (loadingUser) {
@@ -100,15 +100,23 @@ export const ProfileTalent = () => {
                     : `(Empty description)`}
                 </p>
               </div>
-              <button
-                onClick={() => navigate(`/profile/talent/hire/${datas.id}`)}
-                // onClick={(id) => {
-                //   getDetailUser(userDataDetail.id);
-                // }}
-                className="bg-purple base-rounded text-white mt-1 py-5 border-[1px] border-[#5E50A1] hover:bg-transparent hover:text-purple duration-200"
-              >
-                Hire
-              </button>
+              {roleUser !== "pekerja" ? (
+                <button
+                  onClick={() => navigate(`/profile/talent/hire/${datas.id}`)}
+                  className="bg-purple base-rounded text-white mt-1 py-5 border-[1px] border-[#5E50A1] hover:bg-transparent hover:text-purple duration-200"
+                >
+                  Hire
+                </button>
+              ) : (
+                ""
+              )}
+              {/* // <button
+              //   onClick={() => navigate(`/profile/talent/hire/${datas.id}`)}
+                
+              //   className="bg-purple base-rounded text-white mt-1 py-5 border-[1px] border-[#5E50A1] hover:bg-transparent hover:text-purple duration-200"
+              // >
+              //   Hire
+              // </button> */}
             </div>
             <div className="skill w-full flex flex-col gap-y-3">
               <h2 className="text-2xl font-bold text-[#1F2A36]">Skill</h2>

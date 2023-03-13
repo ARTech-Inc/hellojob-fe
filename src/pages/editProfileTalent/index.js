@@ -53,6 +53,9 @@ export const EditProfileTalent = () => {
   const navigate = useNavigate();
   return (
     <>
+      <nav className="navbar-mobile w-full h-[10vh] md:hidden flex px-3 items-center justify-center fixed top-0 left-0 bg-white z-20 shadow-2xl">
+        <p className="text-purple text-xl cursor-pointer font-bold">HelloJob</p>
+      </nav>
       <Navbar />
       <main className="h-[600vh] sm:h-[700vh] lg:h-[600vh] w-full bg-base pt-28 max-sm:pt-16 px-3 flex flex-col gap-y-5  md:gap-x-6 md:flex-row md:px-32 md:pt-40">
         <section className="w-full md:w-[60%] h-[90vh] md:h-[120vh] flex flex-col gap-y-5 sm:mb-10">

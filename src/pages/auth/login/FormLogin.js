@@ -31,7 +31,7 @@ export const FormLogin = () => {
         navigate("/home");
       })
       .catch((err) => {
-        // console.log(err.response.data);
+        console.log(err);
         setValidate({ error: true, message: err.response.data.message });
       });
   };

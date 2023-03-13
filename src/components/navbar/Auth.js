@@ -17,10 +17,12 @@ export const Auth = ({ setIsLogin }) => {
   const { userId } = useParams();
 
   const [avatar, setAvatar] = useState("");
+  const [name, setName] = useState("");
   useEffect(() => {
     axios
       .get(`https://hellojob.up.railway.app/api/v1/users/${userLoginID}`)
       .then((result) => {
+        setName(result.data.data.name);
         setAvatar(result.data.data.avatar);
       })
       .catch((err) => {
@@ -46,7 +48,8 @@ export const Auth = ({ setIsLogin }) => {
                 ? `https://hellojob.up.railway.app/images/${avatar}`
                 : `https://hellojobb.vercel.app/images/default-avatar.jpg`
             }
-            alt=""
+            alt="asd"
+            title={`${name}`}
             className="rounded-full w-8 h-8"
           />
         </div>

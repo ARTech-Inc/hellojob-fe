@@ -1,32 +1,24 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Footer } from "../../components/footer";
 import { Navbar } from "../../components/navbar";
 import { getDataUsers } from "../../redux/actions/users";
 
 export const ProfileRecruiter = () => {
-  // const userDetail = useSelector((state) => state.users);
-  // const userDataDetail = userDetail.data;
-  // const loadingUser = userDetail.loading;
-  // const errorUser = userDetail.error;
-  // const dispatch = useDispatch();
-  // const { userId } = useParams();
-
-  // useEffect(() => {
-  //   dispatch(getDataUsers(`/${userId}`));
-  // }, []);
   const userDetail = useSelector((state) => state.users);
   const userDataDetail = userDetail.data;
-  const loadingUser = userDetail.loading;
-  const errorUser = userDetail.error;
+  // const loadingUser = userDetail.loading;
+  // const errorUser = userDetail.error;
   const dispatch = useDispatch();
   const { userId } = useParams();
-  console.log(userDataDetail);
 
   useEffect(() => {
     dispatch(getDataUsers(`/${userId}`));
-  }, []);
+  }, [dispatch, userId]);
+  console.log(userDataDetail);
+
+  const navigate = useNavigate();
   return (
     <>
       <nav className="navbar-mobile w-full h-[10vh] md:hidden flex px-3 items-center justify-center fixed top-0 left-0 bg-white z-20 shadow-2xl">
@@ -43,8 +35,8 @@ export const ProfileRecruiter = () => {
                 <img
                   src={
                     userDataDetail.avatar
-                      ? `https://hellojob.up.railway.app/uploads/images/${userDataDetail.avatar}`
-                      : ""
+                      ? `https://hellojob.up.railway.app/images/${userDataDetail.avatar}`
+                      : `https://hellojobb.vercel.app/images/default-avatar.jpg`
                   }
                   alt=""
                   className="w-32 h-32 rounded-full"
@@ -64,7 +56,10 @@ export const ProfileRecruiter = () => {
                 {userDataDetail ? userDataDetail.description : ""}
               </p>
             </div>
-            <button className="bg-purple base-rounded px-3 py-3 w-[60%] md:w-[40%] text-white duration-200 hover:bg-purple-800 mb-5 mt-5">
+            <button
+              onClick={() => navigate(`/profile/recruiter/edit/${userId}`)}
+              className="bg-purple base-rounded px-3 py-3 w-[60%] md:w-[40%] text-white duration-200 hover:bg-white hover:text-[#5E50A1] border-[#5E50A1] border-[2px] mb-5 mt-5"
+            >
               Edit profile
             </button>
             <div className="socmed flex flex-col justify-center items-start gap-y-3">

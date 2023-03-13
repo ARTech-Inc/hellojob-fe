@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getDataUsers } from "../../../redux/actions/users";
 
-export const PaginationBar = () => {
-  const [page, setPage] = useState(1);
-  const [refetchPage, setRefetchPage] = useState(false);
+export const PaginationBar = ({ page, setPage, setRefetchPage }) => {
+  // const [page, setPage] = useState(1);
+  // const [refetchPage, setRefetchPage] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDataUsers(`?page=${page}`));
